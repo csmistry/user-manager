@@ -1,0 +1,11 @@
+<h1> Edit team member</h1>
+
+<a href="{% url 'members' %}">Go back</a>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit"/>
+</form>
+
+<a href="{% url 'member-delete' member.id %}">Delete</a>

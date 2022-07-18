@@ -8,7 +8,7 @@
     {% for member in members%}
     <tr>
         <td>
-            <a href="{% url 'member' member.id %}">
+            <a href="{% url 'member-edit' member.id %}">
                 {{member.first_name}}
             </a>
         </td>
