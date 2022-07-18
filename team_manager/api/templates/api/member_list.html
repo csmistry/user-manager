@@ -1,0 +1,18 @@
+<h1>My list</h1>
+
+<table>
+    <tr>
+        <th>Member</th>
+    </tr>
+    {% for member in members%}
+    <tr>
+        <td>
+            <a href="{% url 'member' member.id %}">
+                {{member.first_name}}
+            </a>
+        </td>
+    </tr>
+    {% empty %}
+    <h3>No items in list</h3>
+    {% endfor %}
+</table>
