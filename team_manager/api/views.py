@@ -1,4 +1,3 @@
-from secrets import choice
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -39,7 +38,8 @@ class MemberCreate(CreateView):
         form.fields['phone'].widget = forms.TextInput(attrs={'placeholder': 'Phone', 'class': 'formTextEntry'})
         form.fields['role'] = forms.ChoiceField(
             choices = Member.Role.choices,
-            widget=forms.RadioSelect()
+            widget=forms.RadioSelect(),
+            initial= Member.Role.REGULAR,
         )
         return form
 

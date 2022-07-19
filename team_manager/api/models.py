@@ -7,8 +7,9 @@ class Member(models.Model):
     
     #enum to represent different roles
     class Role(models.TextChoices):
-        ADMIN = 'ADMIN', _('Admin')
-        REGULAR = 'REGULAR', _('Regular')
+        REGULAR = 'REGULAR', _('Regular - Can\'t delete members')
+        ADMIN = 'ADMIN', _('Admin - Can delete members')
+        
     
     #meta fields for a member
     first_name = models.CharField(max_length=50, default='')

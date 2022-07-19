@@ -19,9 +19,12 @@
     {{form.last_name}}
     {{form.email}}
     {{form.phone}}
-    <div>
+    </div>
     <h2>Role</h2>
     {{form.role}}
-    <input type="submit" value="Submit"/>
+    <div class="buttonContainer">
+        <a class="button" href="{% url 'members' %}">Cancel</a>
+        <input class="button submitButton" type="submit" value="Submit"/>
+    </div>
 </form>
 {% endblock content%}
