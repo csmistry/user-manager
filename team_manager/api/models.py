@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django import forms
 
 # Member represents a team member
 class Member(models.Model):
@@ -13,7 +14,7 @@ class Member(models.Model):
     first_name = models.CharField(max_length=50, default='')
     last_name = models.CharField(max_length=50, default='')
     email = models.CharField(max_length=50, default='')
-    phone = models.CharField(max_length=10, default='', unique=True)
+    phone = models.CharField(max_length=15, default='', unique=True)
 
     #set default role to Regular
     role = models.CharField(

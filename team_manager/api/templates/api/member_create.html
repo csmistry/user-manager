@@ -3,11 +3,25 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'api/member_create.css' %}">
 
-<h1> Add a team member</h1>
+<div class="header">
+    <div class="headerTitle">
+        <h1 class="headerTitle">Add a team member</h1>
+    </div>
+    <div class="subtitle">Set name, email, phone and role</div>
+</div>
 
+<div>
 <form method="POST" action="">
     {% csrf_token %}
-    {{form.as_p}}
+    <h2>Info</h2>
+    <div class="infoWrapper">
+    {{form.first_name}}
+    {{form.last_name}}
+    {{form.email}}
+    {{form.phone}}
+    <div>
+    <h2>Role</h2>
+    {{form.role}}
     <input type="submit" value="Submit"/>
 </form>
 {% endblock content%}
