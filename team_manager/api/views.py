@@ -14,6 +14,7 @@ class MembersList(ListView):
     #Overrides the default object_list name
     context_object_name = 'members'
 
+
    
 
 #add a new team member
@@ -26,6 +27,7 @@ class MemberCreate(CreateView):
     #after creating a member, redirect to members list
     success_url = reverse_lazy('members')
     template_name = 'api/member_create.html'
+    
 
     def get_form(self, form_class=None):
         if form_class is None:

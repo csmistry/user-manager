@@ -5,24 +5,32 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Team Manager</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    {% load static%}
-    <link rel="stylesheet" type="text/css" href="{% static 'api/main.css' %}">
     
     {% comment %} custom fonts {% endcomment %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
-
+   
+    
     <style>
         body {
+            padding-top: 10px;
             font-family: 'Nunito', sans-serif;
-            }        
+        }
+        .container{
+            padding: 50px;
+            max-width: 900px;
+            margin: auto;
+            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        }
     </style>
 </head>
 <body>
+   
     
     <div class="container">
         {% block content %}
+    
      
         {% endblock content %}
     </div>
