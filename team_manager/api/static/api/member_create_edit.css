@@ -53,6 +53,16 @@
     font-family: 'Nunito', sans-serif;
 }
 
+.deleteButton {
+    border-color: coral;
+    font-family: 'Nunito', sans-serif;
+}
+
+.deleteButton:hover {
+    background-color: lightcoral !important;
+    color: white;
+}
+
 .button:hover {
     background-color: lightgray;
 }

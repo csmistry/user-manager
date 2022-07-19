@@ -1,11 +1,16 @@
 {% extends 'api/main.html' %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'api/member_create_edit.css' %}">
 
-<a href="{% url 'members' %}">Go back</a>
+
 <form method="POST">
     {% csrf_token %}
-    <p> Are you sure you want to delete this Member? "{{member}}"</p>
-    <input type="submit" value="Delete"/>
+    <h2> Are you sure you want to delete "{{member}}" ?</h2>
+    <div class="buttonContainer">
+        <a class="button" href="{% url 'members' %}">Cancel</a>
+        <input class="button deleteButton" type="submit" value="Delete"/>
+    </div>
 </form>
 
 {% endblock content%}

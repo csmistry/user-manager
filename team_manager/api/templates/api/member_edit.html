@@ -1,19 +1,31 @@
 {% extends 'api/main.html' %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'api/member_edit.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'api/member_create_edit.css' %}">
 
-<h1> Edit team member</h1>
+<div class="header">
+    <div class="headerTitle">
+        <h1 class="headerTitle">Edit team member</h1>
+    </div>
+    <div class="subtitle">Edit contact info and role</div>
+</div>
 
-<a href="{% url 'members' %}">Go back</a>
-
+<div>
 <form method="POST" action="">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit"/>
+    <h2>Info</h2>
+    <div class="infoWrapper">
+    {{form.first_name}}
+    {{form.last_name}}
+    {{form.email}}
+    {{form.phone}}
+    </div>
+    <h2>Role</h2>
+    {{form.role}}
+    <div class="buttonContainer">
+        <a class="button deleteButton" href="{% url 'member-delete' member.id %}">Delete</a>
+        <input class="button submitButton" type="submit" value="Submit"/>
+    </div>
 </form>
-
-<a href="{% url 'member-delete' member.id %}">Delete</a>
-
 {% endblock content%}
 

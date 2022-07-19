@@ -50,6 +50,22 @@ class MemberEdit(UpdateView):
     success_url = reverse_lazy('members')
     template_name = 'api/member_edit.html'
 
+    def get_form(self, form_class=None):
+        if form_class is None:
+            form_class = self.get_form_class()
+
+        form = super(MemberEdit, self).get_form(form_class)
+        form.fields['first_name'].widget = forms.TextInput(attrs={'placeholder': 'First Name', 'class': 'formTextEntry'})
+        form.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': 'Last Name', 'class': 'formTextEntry'})
+        form.fields['email'].widget = forms.TextInput(attrs={'placeholder': 'Email', 'class': 'formTextEntry'})
+        form.fields['phone'].widget = forms.TextInput(attrs={'placeholder': 'Phone', 'class': 'formTextEntry'})
+        form.fields['role'] = forms.ChoiceField(
+            choices = Member.Role.choices,
+            widget=forms.RadioSelect(),
+            initial= form.fields['role'],
+        )
+        return form
+
 #delete team member
 class MemberDelete(DeleteView):
     model = Member
