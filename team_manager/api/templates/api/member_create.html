@@ -18,13 +18,16 @@
     {{form.first_name}}
     {{form.last_name}}
     {{form.email}}
+    {% comment %} {% if form.email.errors %}
+        <p>{{form.email.errors.}}</p>
+    {% endif %} {% endcomment %}
     {{form.phone}}
     </div>
     <h2>Role</h2>
     {{form.role}}
     <div class="buttonContainer">
         <a class="button" href="{% url 'members' %}">Cancel</a>
-        <input class="button submitButton" type="submit" value="Submit"/>
+        <input class="button submitButton" type="submit" value="Save"/>
     </div>
 </form>
 {% endblock content%}

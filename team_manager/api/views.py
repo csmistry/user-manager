@@ -34,7 +34,7 @@ class MemberCreate(CreateView):
         form = super(MemberCreate, self).get_form(form_class)
         form.fields['first_name'].widget = forms.TextInput(attrs={'placeholder': 'First Name', 'class': 'formTextEntry'})
         form.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': 'Last Name', 'class': 'formTextEntry'})
-        form.fields['email'].widget = forms.TextInput(attrs={'placeholder': 'Email', 'class': 'formTextEntry'})
+        form.fields['email'].widget = forms.EmailInput(attrs={'class': 'formTextEntry', 'required': True, 'placeholder': 'Email'})
         form.fields['phone'].widget = forms.TextInput(attrs={'placeholder': 'Phone', 'class': 'formTextEntry'})
         form.fields['role'] = forms.ChoiceField(
             choices = Member.Role.choices,
@@ -57,13 +57,14 @@ class MemberEdit(UpdateView):
         form = super(MemberEdit, self).get_form(form_class)
         form.fields['first_name'].widget = forms.TextInput(attrs={'placeholder': 'First Name', 'class': 'formTextEntry'})
         form.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': 'Last Name', 'class': 'formTextEntry'})
-        form.fields['email'].widget = forms.TextInput(attrs={'placeholder': 'Email', 'class': 'formTextEntry'})
+        form.fields['email'].widget = forms.EmailInput(attrs={'class': 'formTextEntry', 'required': True, 'placeholder': 'Email'})
         form.fields['phone'].widget = forms.TextInput(attrs={'placeholder': 'Phone', 'class': 'formTextEntry'})
         form.fields['role'] = forms.ChoiceField(
             choices = Member.Role.choices,
             widget=forms.RadioSelect(),
             initial= form.fields['role'],
         )
+        
         return form
 
 #delete team member
