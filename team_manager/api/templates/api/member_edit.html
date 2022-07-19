@@ -1,5 +1,8 @@
 {% extends 'api/main.html' %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'api/member_edit.css' %}">
+
 <h1> Edit team member</h1>
 
 <a href="{% url 'members' %}">Go back</a>

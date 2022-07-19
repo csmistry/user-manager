@@ -1,24 +1,48 @@
 {% extends 'api/main.html' %}
+
 {% block content %}
 
-<h1>My list</h1>
-<a href="{% url 'member-create' %}">Add member</a>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'api/member_list.css' %}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
-<table>
-    <tr>
-        <th>Member</th>
-    </tr>
+<div class="headerContainer">
+    <div class="headerLeftContent">
+        <h1 class="headerTitle">Team members</h1>
+        <p class="subtitle">You have {{ members.count}} team member{{ members.count|pluralize:"s"}}</p>
+    </div>
+    <div class="headerRightContent">
+        <a href="{% url 'member-create' %}">
+            <span class="material-icons">
+                add
+            </span>
+        </a>
+    </div>
+</div>
+
+
+<div class="listContainer">
     {% for member in members%}
-    <tr>
-        <td>
-            <a href="{% url 'member-edit' member.id %}">
-                {{member.first_name}}
-            </a>
-        </td>
-    </tr>
+        <a class="listItemWrapper" href="{% url 'member-edit' member.id %}">
+            <span class="material-icons avatarIcon">
+                account_circle
+            </span>
+            <div class="listItemContent">
+                <div class="listItemTitle">
+                    {% if member.role == "ADMIN"%}
+                        {{member}} (admin)
+                    {% else %}
+                        {{member}}
+                    {% endif %}
+                </div>
+                <div class="listItemSubtitle">{{member.phone}}</div>
+                <div class="listItemSubtitle">{{member.email}}</div>
+            </div>
+        </a>
     {% empty %}
     <h3>No items in list</h3>
     {% endfor %}
-</table>
+</div>
 
 {% endblock content%}
