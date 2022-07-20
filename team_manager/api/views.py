@@ -15,8 +15,6 @@ class MembersList(ListView):
     context_object_name = 'members'
 
 
-   
-
 #add a new team member
 class MemberCreate(CreateView):
     model = Member
@@ -28,7 +26,7 @@ class MemberCreate(CreateView):
     success_url = reverse_lazy('members')
     template_name = 'api/member_create.html'
     
-
+    #add styling to base template form
     def get_form(self, form_class=None):
         if form_class is None:
             form_class = self.get_form_class()
