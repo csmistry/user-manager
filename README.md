@@ -1,6 +1,6 @@
 # user-manager
 
-## How to run app
+## How to run the app
 
 1. Clone repo: `git clone https://github.com/csmistry/user-manager.git`
 2. Make sure Python and Django are installed
